@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Dagger2</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="error">Error</string>
+    <string name="hecho">Hecho</string>
+    <string name="user_available">El usuario no se ecnuentra disponible</string>
+    <string name="user_saved">Usuario guardado correctamente</string>
+    <string name="firstname">FirstName</string>
+    <string name="lastname">LastName</string>
+    <string name="login">Login</string>
+</resources>
