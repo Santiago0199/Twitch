@@ -16,6 +16,12 @@ class LoginPresenter(model: LoginMVP.Model): LoginMVP.Presenter{
         this.view = view
     }
 
+    override fun editTextChanged() {
+        if(view != null){
+            view!!.enabledButtonLogin(view!!.getFirstName().trim() != "" && view!!.getLastName().trim() !== "")
+        }
+    }
+
     override fun loginButtonClicked() {
         if(view != null){
             model.createUser(view!!.getFirstName(), view!!.getLastName())

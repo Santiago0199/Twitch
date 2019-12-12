@@ -9,6 +9,8 @@ interface LoginMVP {
         fun setFirstName(firstName: String)
         fun setLastName(lastName: String)
 
+        fun enabledButtonLogin(state: Boolean)
+
         fun showUserNotAvailable()
         fun showUserSaved()
     }
@@ -16,6 +18,7 @@ interface LoginMVP {
     interface Presenter{
         fun setView(view: View)
         fun loginButtonClicked()
+        fun editTextChanged()
         fun getCurrentUser()
     }
 
