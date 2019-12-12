@@ -1,1 +1,3 @@
-# Dagger2
+# ArquitecturaMVP
+
+Proyecto basado en la arquitetura ModelViewPresenter(MVP) con uso de Dagger2 para inyección de dependencias, pruebas unitarias con mockito... 
