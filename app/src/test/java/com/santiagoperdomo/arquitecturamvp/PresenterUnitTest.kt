@@ -1,8 +1,8 @@
-package com.santiagoperdomo.dagger2
+package com.santiagoperdomo.arquitecturamvp
 
-import com.santiagoperdomo.dagger2.login.LoginMVP
-import com.santiagoperdomo.dagger2.login.LoginPresenter
-import com.santiagoperdomo.dagger2.login.User
+import com.santiagoperdomo.arquitecturamvp.login.LoginMVP
+import com.santiagoperdomo.arquitecturamvp.login.LoginPresenter
+import com.santiagoperdomo.arquitecturamvp.login.User
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.*

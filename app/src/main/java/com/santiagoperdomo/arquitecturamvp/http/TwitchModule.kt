@@ -1,4 +1,4 @@
-package com.santiagoperdomo.dagger2.http
+package com.santiagoperdomo.arquitecturamvp.http
 
 import dagger.Module
 import dagger.Provides

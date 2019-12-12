@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dagger2</string>
+    <string name="app_name">ArquitecturaMVP</string>
     <string name="aceptar">Aceptar</string>
     <string name="error">Error</string>
     <string name="hecho">Hecho</string>

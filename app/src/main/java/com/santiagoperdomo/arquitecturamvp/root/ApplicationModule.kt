@@ -1,4 +1,4 @@
-package com.santiagoperdomo.dagger2.root
+package com.santiagoperdomo.arquitecturamvp.root
 
 import android.app.Application
 import android.content.Context

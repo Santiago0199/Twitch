@@ -1,4 +1,4 @@
-package com.santiagoperdomo.dagger2.login
+package com.santiagoperdomo.arquitecturamvp.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,10 +7,10 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
-import com.santiagoperdomo.dagger2.R
-import com.santiagoperdomo.dagger2.http.TwitchAPI
-import com.santiagoperdomo.dagger2.http.twitch.Twitch
-import com.santiagoperdomo.dagger2.root.MyApp
+import com.santiagoperdomo.arquitecturamvp.R
+import com.santiagoperdomo.arquitecturamvp.http.TwitchAPI
+import com.santiagoperdomo.arquitecturamvp.http.twitch.Twitch
+import com.santiagoperdomo.arquitecturamvp.root.MyApp
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

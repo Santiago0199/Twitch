@@ -1,7 +1,7 @@
-package com.santiagoperdomo.dagger2.root
+package com.santiagoperdomo.arquitecturamvp.root
 
 import android.app.Application
-import com.santiagoperdomo.dagger2.login.LoginModule
+import com.santiagoperdomo.arquitecturamvp.login.LoginModule
 
 class MyApp: Application() {
 

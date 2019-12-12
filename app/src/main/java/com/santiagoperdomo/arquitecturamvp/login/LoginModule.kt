@@ -1,4 +1,4 @@
-package com.santiagoperdomo.dagger2.login
+package com.santiagoperdomo.arquitecturamvp.login
 
 import dagger.Module
 import dagger.Provides

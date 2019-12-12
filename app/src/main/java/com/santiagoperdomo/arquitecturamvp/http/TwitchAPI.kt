@@ -1,10 +1,9 @@
-package com.santiagoperdomo.dagger2.http
+package com.santiagoperdomo.arquitecturamvp.http
 
-import com.santiagoperdomo.dagger2.http.twitch.Twitch
+import com.santiagoperdomo.arquitecturamvp.http.twitch.Twitch
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
-import retrofit2.http.Query
 
 interface TwitchAPI {
 

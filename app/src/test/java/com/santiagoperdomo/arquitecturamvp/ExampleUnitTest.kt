@@ -1,4 +1,4 @@
-package com.santiagoperdomo.dagger2
+package com.santiagoperdomo.arquitecturamvp
 
 import org.junit.Test
 
