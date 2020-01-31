@@ -1,16 +1,22 @@
 package com.santiagoperdomo.arquitecturamvp.login
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import com.santiagoperdomo.arquitecturamvp.R
 import com.santiagoperdomo.arquitecturamvp.http.TwitchAPI
+import com.santiagoperdomo.arquitecturamvp.http.twitch.Game
 import com.santiagoperdomo.arquitecturamvp.http.twitch.Twitch
 import com.santiagoperdomo.arquitecturamvp.root.MyApp
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -42,7 +48,7 @@ class LoginActivity : AppCompatActivity(), LoginMVP.View, TextWatcher {
         etLastName.addTextChangedListener(this)
         btnLogin.setOnClickListener { presenter.loginButtonClicked() }
 
-        val call = twitchAPI.getTopGames("mr6smatcltshgvwkvk3qlwvwkcltbu")
+        /*val call = twitchAPI.getTopGames("mr6smatcltshgvwkvk3qlwvwkcltbu")
         call.enqueue(object : Callback<Twitch>{
             override fun onResponse(call: Call<Twitch>, response: Response<Twitch>) {
                 val topGames = response.body()!!.game
@@ -53,7 +59,39 @@ class LoginActivity : AppCompatActivity(), LoginMVP.View, TextWatcher {
             override fun onFailure(call: Call<Twitch>, t: Throwable) {
                 t.printStackTrace()
             }
-        })
+        })*/
+
+        twitchAPI.getTopGamesObservable("41l7gp8rw3q0jm0ssiwd77i2y5497o")
+            .flatMap { twitch ->
+                Observable.fromIterable(twitch.game)
+            }.flatMap { game ->
+                Observable.just(game.name)
+            }.filter{ name ->
+                name.contains("w")
+            }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                println("Rx $it")
+            }
+
+        twitchAPI.getStramsObservable("41l7gp8rw3q0jm0ssiwd77i2y5497o")
+            .flatMap { stream ->
+                Observable.fromIterable(stream.data)
+            }.filter{
+                it.viewerCount!! > 100
+            }.flatMap { datumsFilter ->
+                twitchAPI.getGameByStream("41l7gp8rw3q0jm0ssiwd77i2y5497o", datumsFilter.gameId)
+            }.flatMap { twitch ->
+                Observable.fromIterable(twitch.game)
+            }.flatMap { game ->
+                Observable.just(game.name)
+            }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                println("Rxxx ${it}")
+            }
     }
 
     override fun onResume() {
